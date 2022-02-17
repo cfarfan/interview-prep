@@ -16,14 +16,18 @@
  */
 
 const findMissingNumber = function (nums) {
-  for (let i = 0; i < nums.length; i++) {
+  let i = 0;
+  const n = nums.length;
+  while (i < n) {
     const j = nums[i] - 1;
-    if (j !== i) {
+    if (nums[i] < n && i !== j) {
       [nums[i], nums[j]] = [nums[j], nums[i]];
+    } else {
+      i++;
     }
   }
 
-  for (let i = 0; i < nums.length; i++) {
+  for (i = 0; i < nums.length; i++) {
     const number = i + 1;
     if (number !== nums[i]) {
       return number;

@@ -25,10 +25,13 @@
  */
 
 const cyclicSort = function (nums) {
-  for (let i = 0; i < nums.length; i++) {
+  let i = 0;
+  while (i < nums.length) {
     const j = nums[i] - 1;
-    if (j !== i) {
+    if (i !== j) {
       [nums[i], nums[j]] = [nums[j], nums[i]];
+    } else {
+      i++;
     }
   }
   return nums;
